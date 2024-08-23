@@ -1,0 +1,37 @@
+﻿@model List<ExpenseModel>
+
+@{
+    ViewBag.Title = "Giderler";
+}
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Gider</th>
+            <th scope="col">Fiyat</th>
+            <th scope="col">Tarih</th>
+            <th scope="col">Kategori</th>
+            <th scope="col">İşlemler</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var expense in Model)
+        {
+            <tr>
+                <th scope="row">@expense.Id</th>
+                <td>@expense.Expense</td>
+                <td>@expense.Price.ToString("C")</td>
+                <td>@expense.ExpenseDate.ToString("dddd, dd MMMM yyyy")</td>
+                <td>@expense.CategoryName</td>
+                <td>
+                    <a href="@Url.Action("UpdateExpense", "Admin", new { id = expense.Id })" class="btn btn-primary">Düzenle</a>
+                    <a href="@Url.Action("DeleteExpense", "Admin", new { id = expense.Id })" onclick="return confirm('Gideri silmek istediğinize emin misiniz?')" class="btn btn-secondary">Sil</a>
+                </td> 
+            </tr>
+        }
+    </tbody>
+    <div style="text-align: center; margin-bottom: 17px;">
+        <a href="/Admin/AddExpense" style="text-decoration: none" class="Link">Gider Ekle</a>
+    </div>
+</table>

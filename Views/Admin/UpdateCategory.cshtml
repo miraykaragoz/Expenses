@@ -1,0 +1,28 @@
+﻿@model CategoryModel
+
+@{
+    ViewBag.Title = "Kategori Güncelle";
+}
+
+@if (ViewBag.SuccessMessage != null)
+{
+    <div class="alert alert-primary" role="alert">
+        @ViewBag.SuccessMessage
+    </div>
+}
+
+@if (ViewBag.ErrorMessage != null)
+{
+    <div class="alert alert-secondary mb-3" role="alert">
+        @ViewBag.ErrorMessage
+    </div>
+}
+
+<form method="post" action="/KategoriGuncelle" autocomplete="off">
+    <input type="hidden" name="Id" value="@Model.Id"/>
+    <div class="mb-3">
+        <label class="form-label">Kategori</label>
+        <input class="form-control" name="Category" value="@Model.Category" required>
+    </div>
+    <button type="submit" class="btn btn-primary">Güncelle</button>
+</form>

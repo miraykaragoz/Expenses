@@ -1,0 +1,37 @@
+﻿@model UserModel
+
+@{
+    ViewBag.Title = Model.Username;
+}
+
+<form class="row g-3" method="post" action="/kullaniciduzenle" autocomplete="off">
+    <div class="col-md-6">
+        <label class="form-label">Ad</label>
+        <input type="text" name="Name" class="form-control" value="@Model.Name" required>
+    </div>
+    <div class="col-md-6">
+        <label class="form-label">Soyad</label>
+        <input type="text" name="Surname" class="form-control" value="@Model.Surname" required>
+    </div>
+    <div class="col-md-6">
+        <label class="form-label">E-Posta Adresi</label>
+        <input type="email" name="Email" class="form-control" value="@Model.Email" required>
+    </div>
+    <div class="col-md-6">
+        <label class="form-label">Şifre</label>
+        <input type="password" name="Password" class="form-control" value="@Model.Password" required>
+        <input type="checkbox" onclick="togglePassword()"> Şifreyi Göster
+    </div>
+    <div class="col-12 text-end">
+        <button type="submit" class="btn btn-primary">Güncelle</button>
+    </div>
+</form>
+
+<script>
+    function togglePassword() {
+        var passwordInputs = document.querySelectorAll('input[name="Password"], input[name="PasswordConfirm"]');
+        passwordInputs.forEach(input => {
+            input.type = (input.type === "password") ? "text" : "password";
+        });
+    }
+</script>

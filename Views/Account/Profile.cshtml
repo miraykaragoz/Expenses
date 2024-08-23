@@ -1,0 +1,56 @@
+﻿@model UserModel
+
+@{
+    ViewData["Title"] = @Model.Username;
+}
+
+@if (ViewBag.ErrorMessage != null)
+{
+    <div class="alert alert-secondary">
+        @ViewBag.ErrorMessage
+    </div>
+}
+
+<div class="profile-container">
+    <h2>@Model.Name @Model.Surname</h2>
+    <div class="profile-details">
+        <p><strong>Kullanıcı Adı:</strong> @Model.Username</p>
+        <p><strong>Email:</strong> @Model.Email</p>
+        <p><strong>Şifre:</strong> ***** </p>
+        <a href="/Account/DeleteUser/@Model.Id" onclick="return confirm('Hesabınızı silmek istediğinize emin misiniz?')" class="link" style="text-decoration: none">Hesabımı Sil</a>
+    </div>
+</div>
+
+<style>
+    .profile-container {
+        max-width: 600px;
+        margin: 0 auto;
+        padding: 20px;
+        background-color: #f5f5f5;
+        border-radius: 10px;
+    }
+
+    .profile-details {
+        margin-top: 20px;
+    }
+
+        .profile-details p {
+            font-size: 16px;
+            margin-bottom: 10px;
+        }
+
+    .btn-primary {
+        display: inline-block;
+        margin-top: 20px;
+        padding: 10px 20px;
+        background-color: #007bff;
+        color: #fff;
+        text-decoration: none;
+        border-radius: 5px;
+        transition: background-color 0.3s ease;
+    }
+
+        .btn-primary:hover {
+            background-color: #0056b3;
+        }
+</style>

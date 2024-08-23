@@ -1,0 +1,32 @@
+﻿@model IncomeModel
+
+@{
+    ViewBag.Title = "Gelir Güncelle";
+}
+
+@if (ViewBag.SuccessMessage != null)
+{
+    <div class="alert alert-primary" role="alert">
+        @ViewBag.SuccessMessage
+    </div>
+}
+
+@if (ViewBag.ErrorMessage != null)
+{
+    <div class="alert alert-secondary mb-3" role="alert">
+        @ViewBag.ErrorMessage
+    </div>
+}
+
+<form method="post" action="/GelirGuncelle" autocomplete="off">
+    <input type="hidden" name="Id" value="@Model.Id"/> 
+    <div class="mb-3">
+        <label class="form-label">Gelir</label>
+        <input class="form-control" name="Income" value="@Model.Income" required>
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Kazanç</label>
+        <input class="form-control" name="Price" value="@Model.Price" required>
+    </div>
+    <button type="submit" class="btn btn-primary">Güncelle</button>
+</form>

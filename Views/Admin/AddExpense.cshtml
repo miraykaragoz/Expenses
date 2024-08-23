@@ -1,0 +1,41 @@
+﻿@model List<CategoryModel>
+
+@{
+    ViewBag.Title = "Gider Ekle";
+}
+
+@if (ViewBag.SuccessMessage != null)
+{
+    <div class="alert alert-primary" role="alert">
+        @ViewBag.SuccessMessage 
+    </div>
+}
+
+@if (ViewBag.ErrorMessage != null)
+{
+    <div class="alert alert-secondary mb-3" role="alert">
+        @ViewBag.ErrorMessage
+    </div>
+}
+
+<form method="post" action="/GiderEkle" autocomplete="off">
+    <div class="mb-3">
+        <label class="form-label">Gider</label>
+        <input class="form-control" name="Expense" rows="3" required>
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Maliyet</label>
+        <input type="text" name="Price" class="form-control" required>
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Kategori</label>
+        <select class="form-select" name="CategoryId" required>
+            <option selected disabled value="">Kategori seçiniz</option>
+            @foreach (var category in Model)
+            {
+                <option value="@category.Id">@category.Category</option>
+            }
+        </select>
+    </div>
+    <button type="submit" class="btn btn-primary">Ekle</button>
+</form>

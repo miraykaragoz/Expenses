@@ -1,0 +1,20 @@
+﻿@model CategoryModel
+
+@{
+    ViewBag.Title = "Kategori Ekle";
+}
+
+@if (TempData["SuccessMessage"] != null)
+{
+    <div class="alert alert-primary" role="alert">
+        @TempData["SuccessMessage"]
+    </div>
+}
+
+<form method="post" action="/KategoriEkle" autocomplete="off">
+    <div class="mb-3">
+        <label class="form-label">Kategori</label>
+        <input class="form-control" name="Category" rows="3" required>
+    </div>
+    <button type="submit" class="btn btn-primary">Ekle</button>
+</form>

@@ -1,0 +1,59 @@
+﻿@model UserModel
+
+@{
+    ViewData["Title"] = "Kayıt Ol";
+}
+
+@if (ViewBag.SuccessMessage != null)
+{
+    <div class="alert alert-primary" role="alert">
+        @ViewBag.SuccessMessage <a href="/account/login" class="alert-link">Giriş yapmak için tıklayınız.</a>
+    </div>
+}
+
+@if (ViewBag.ErrorMessage != null)
+{
+    <div class="alert alert-secondary mb-3" role="alert">
+        @ViewBag.ErrorMessage
+    </div>
+}
+
+<form class="row g-3" method="post" action="/kayit" autocomplete="off">
+    <div class="col-md-6">
+        <label class="form-label">Ad</label>
+        <input type="text" name="Name" class="form-control" required>
+    </div>
+    <div class="col-md-6">
+        <label class="form-label">Soyad</label>
+        <input type="text" name="Surname" class="form-control" required>
+    </div>
+    <div class="col-md-6">
+        <label class="form-label">E-Posta Adresi</label>
+        <input type="email" name="Email" class="form-control" required>
+    </div>
+    <div class="col-md-6">
+        <label class="form-label">Kullanıcı Adı</label>
+        <input type="text" name="Username" class="form-control" required>
+    </div>
+    <div class="col-md-6">
+        <label class="form-label">Şifre</label>
+        <input type="password" name="Password" class="form-control" required>
+        <input type="checkbox" onclick="togglePassword()"> Şifreyi Göster
+    </div>
+    <div class="col-md-6">
+        <label class="form-label">Şifre Tekrar</label>
+        <input type="password" name="PasswordConfirm" class="form-control" required>
+    </div>
+    <div class="col-12 text-end">
+        <button type="submit" class="btn btn-primary">Kayıt Ol</button>
+    </div>
+</form>
+
+<script>
+    function togglePassword() {
+        var passwordInputs = document.querySelectorAll('input[name="Password"], input[name="PasswordConfirm"]');
+        passwordInputs.forEach(input => {
+            input.type = (input.type === "password") ? "text" : "password";
+        });
+    }
+</script>

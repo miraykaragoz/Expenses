@@ -1,0 +1,35 @@
+﻿@model List<IncomeModel>
+
+@{
+    ViewBag.Title = "Gelirler";
+}
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Gelir Açıklaması</th>
+            <th scope="col">Kazanç</th>
+            <th scope="col">Tarih</th>
+            <th scope="col">İşlemler</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var income in Model)
+        {
+            <tr>
+                <th scope="row">@income.Id</th>
+                <td>@income.Income</td>
+                <td>@income.Price.ToString("C")</td>
+                <td>@income.IncomeDate</td>
+                <td>
+                    <a href="@Url.Action("UpdateIncome", "Admin", new { id = income.Id })" class="btn btn-primary">Düzenle</a>
+                    <a href="@Url.Action("DeleteIncome", "Admin", new { id = income.Id })" onclick="return confirm('Geliri silmek istediğinize emin misiniz?')" class="btn btn-secondary">Sil</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+    <div style="text-align: center; margin-bottom: 17px;">
+        <a href="/Admin/AddIncome" style="text-decoration: none" class="link">Gelir Ekle</a>
+    </div>
+</table>

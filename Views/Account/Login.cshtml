@@ -1,0 +1,26 @@
+﻿@model UserModel
+
+@{
+    ViewData["Title"] = "Giriş Yap";
+}
+
+@if (TempData["AuthError"] != null)
+{
+    <div class="alert alert-secondary mb-3" role="alert">
+        @TempData["AuthError"]
+    </div>
+}
+
+<form class="row gy-2 gx-3 align-items-start" method="post" action="/giris" autocomplete="off">
+    <div class="col-12 col-md-6 mb-3">
+        <div class="input-group">
+            <div class="input-group-text">@@</div>
+            <input type="text" name="Username" class="form-control" placeholder="Kullanıcı Adı" required>
+        </div>
+        <a href="/Account/ForgotPassword" class="btn btn-link mt-2">Şifremi Unuttum</a>
+    </div>
+    <div class="col-12 col-md-6">
+        <input type="password" name="Password" class="form-control" placeholder="Şifre" required>
+        <button type="submit" class="btn btn-primary mt-3 float-end">Giriş Yap</button>
+    </div>
+</form>

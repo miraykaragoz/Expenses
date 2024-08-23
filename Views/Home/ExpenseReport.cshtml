@@ -1,0 +1,118 @@
+﻿@model PieChartModel
+
+@{
+    ViewBag.Title = "Harcama Raporu";
+    
+
+    decimal totalIncome = 0;
+    decimal totalExpense = 0;
+
+    string income = "[";
+    string[] incomeColors = {
+        "#151515",
+        "#A91D3A",
+        "#C73659",
+        "#EEEEEE",
+        "#921A40",
+        "#C75B7A",
+        "#D9ABAB",
+        "#F4D9D0"
+    };
+    int index = 0;
+    foreach (var item in ViewBag.Income)
+    {
+        totalIncome += item.Price;
+        income += $"{{'y':{item.Price},'label':'{item.Income}', 'color':'{incomeColors[index]}'}},";
+        index = (index + 1) % incomeColors.Length;
+    }
+    income = income.TrimEnd(',') + "]";
+
+    string expense = "[";
+    string[] expenseColors = {
+        "#151515",
+        "#A91D3A",
+        "#C73659",
+        "#EEEEEE",
+        "#921A40",
+        "#C75B7A",
+        "#D9ABAB",
+        "#F4D9D0"
+    };
+    index = 0;
+    foreach (var item in ViewBag.Expense)
+    {
+        totalExpense += item.Price;
+        expense += $"{{'y':{item.Price},'label':'{item.Expense}', 'color':'{expenseColors[index]}'}},";
+        index = (index + 1) % expenseColors.Length;
+    }
+    expense = expense.TrimEnd(',') + "]";
+}
+
+<div style="display: flex; justify-content: center; flex-direction: column; align-items: center; height: 100vh; margin: 0;">
+    <div style="display: flex; justify-content: space-between; width: 80%; max-width: 1200px;">
+        <div style="flex: 1; padding-right: 20px; box-sizing: border-box;">
+            <h2 style="text-align: center;">Gelir Tablosu</h2>
+            <div id="incomePieChart" class="chart-container"></div>
+            <div class="total">
+                Toplam Gelir: @totalIncome.ToString("C") 
+            </div>
+        </div>
+
+        <div style="flex: 1; padding-left: 20px; box-sizing: border-box;">
+            <h2 style="text-align: center;">Gider Tablosu</h2>
+            <div id="expensePieChart" class="chart-container"></div>
+            <div class="total">
+                Toplam Gider: @totalExpense.ToString("C")
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    window.onload = function () {
+        var incomeChart = new CanvasJS.Chart("incomePieChart", {
+            animationEnabled: true,
+            title: {
+                text: "Gelir Tablosu"
+            },
+            data: [{
+                type: "pie",
+                startAngle: 240,
+                yValueFormatString: "##0.00\"TL\"",
+                indexLabel: "{label} {y}",
+                dataPoints: @Html.Raw(income)
+                    }]
+        });
+        incomeChart.render();
+
+        var expenseChart = new CanvasJS.Chart("expensePieChart", {
+            animationEnabled: true,
+            title: {
+                text: "Gider Tablosu"
+            },
+            data: [{
+                type: "pie",
+                startAngle: 240,
+                yValueFormatString: "##0.00\"TL\"",
+                indexLabel: "{label} {y}",
+                dataPoints: @Html.Raw(expense)
+                    }]
+        });
+        expenseChart.render();
+    }
+</script>
+
+<style>
+    .chart-container {
+        width: 100%;
+        height: 300px;
+    }
+
+    .total {
+        margin-top: 10px;
+        font-weight: bold;
+        text-align: center;
+    }
+</style>
+
+<script src="https://cdn.canvasjs.com/canvasjs.min.js"></script>

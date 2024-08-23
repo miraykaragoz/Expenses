@@ -1,0 +1,44 @@
+﻿@model ExpenseModel
+
+@{
+    ViewBag.Title = "Gider Güncelle";
+}
+
+@if (ViewBag.SuccessMessage != null)
+{
+    <div class="alert alert-primary" role="alert">
+        @ViewBag.SuccessMessage
+    </div>
+}
+
+@if (ViewBag.ErrorMessage != null)
+{
+    <div class="alert alert-secondary mb-3" role="alert">
+        @ViewBag.ErrorMessage
+    </div>
+}
+
+<form method="post" action="/GiderGuncelle" autocomplete="off">
+    <input type="hidden" name="Id" value="@Model.Id" />
+    <div class="mb-3">
+        <label class="form-label">Gider</label>
+        <input class="form-control" name="Expense" value="@Model.Expense" required>
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Maliyet</label>
+        <input type="text" name="Price" class="form-control" value="@Model.Price" required>
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">Kategori</label>
+        <select class="form-select" name="CategoryId" required>
+            <option selected disabled value="">Kategori seçiniz</option>
+            @foreach (var category in Model.Categories)
+            {
+                <option value="@category.Id">@category.Category</option>
+            }
+        </select>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Güncelle</button>
+</form>
