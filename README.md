@@ -1,7 +1,7 @@
-Bu uygulama, kullanıcıların finansal durumlarını daha iyi yönetmelerine yardımcı olmayı amaçlıyor. Kullanıcı adı ve e-posta kontrolü ile aynı bilgilere sahip kullanıcı varsa yeni kullanıcının kaydı engelleniyor. Bu sayede, sistemde kayıtlı olmayan kullanıcılar sorunsuz bir şekilde kayıt olabiliyor.
+This application is designed to help users better manage their financial situation. It prevents the registration of new users with the same username or email address by checking these details, ensuring that only new users who are not already registered in the system can sign up seamlessly.
 
-Uygulamamız, kullanıcıların kayıt olduktan sonra bilgilerini güncellemelerine veya hesaplarını silmelerine olanak tanıyor. Ayrıca, her yeni kullanıcı için otomatik bir e-posta bildirimi gönderiliyor, böylece kullanıcıların kayıt süreci daha akıcı hale geliyor. Her birey, kendine ait gelir ve gider tablolarını yönetebiliyor ve ekledikleri kategorilere göre gider ekleyebiliyor.
+Once registered, users can update their information or delete their accounts. Additionally, an automatic email notification is sent to each new user, streamlining the registration process. Each individual can manage their own income and expense tables and add expenses according to the categories they create.
 
-Kullanıcılar, ekledikleri gelirleri, giderleri ve kategorileri düzenleme veya silme imkanına sahipken, anasayfada toplam gelir ve giderleri gösteren bir pie chart ile finansal durumlarını görselleştirme olanağına da sahipler. 
+Users also have the ability to edit or delete their added income, expenses, and categories. On the homepage, a pie chart visualizes their financial situation by displaying the total income and expenses, providing users with a clear overview of their finances.
 
-Live demo: https://expenses.miraykaragoz.com.tr/
+🔗 Live link: https://expenses.miraykaragoz.com.tr/
