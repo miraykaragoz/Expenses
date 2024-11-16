@@ -1,7 +1,7 @@
-This application is designed to help users better manage their financial situation. It prevents the registration of new users with the same username or email address by checking these details, ensuring that only new users who are not already registered in the system can sign up seamlessly.
+Expenses is an intuitive and efficient web application designed to simplify financial management. It enables users to easily track their daily income and expenses, helping them manage their budgets more effectively. The registration process is seamless and secure, preventing duplicate accounts with the same username or email address, ensuring a smooth experience for new users.
 
-Once registered, users can update their information or delete their accounts. Additionally, an automatic email notification is sent to each new user, streamlining the registration process. Each individual can manage their own income and expense tables and add expenses according to the categories they create.
+Once registered, users have the flexibility to update their information or delete their accounts. Additionally, each new user receives an automatic email notification upon registration, streamlining the onboarding process. The application allows individuals to manage their own income and expense records, categorized according to their preferences.
 
-Users also have the ability to edit or delete their added income, expenses, and categories. On the homepage, a pie chart visualizes their financial situation by displaying the total income and expenses, providing users with a clear overview of their finances.
+Users can visualize their financial situation through a pie chart on the homepage, which displays the total income and expenses, offering a quick overview of their finances. The ability to edit or delete income, expenses, and categories ensures that users have complete control over their financial data. Expenses is a powerful tool that empowers users to take charge of their financial goals with ease.
 
 🔗 Live link: https://expenses.miraykaragoz.com.tr/
